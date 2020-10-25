@@ -78,6 +78,8 @@ def PrintFunction(n):
 for y in PrintFunction(n):
     print(y, end="")
 
+
+
 #List Comprehensions
 if __name__ == '__main__':
     x = int(input())
@@ -142,46 +144,7 @@ if __name__ == '__main__':
     print(format(mediael, '.2f'))
 
 
-#Tuples
-if __name__ == '__main__':
-    n = int(input())
-    integer_list = map(int, input().split())
-    t = tuple(integer_list)
-    print(hash(t))
-
-
-#sWAP cASE
-def swap_case(s):
-    swap= ""
-
-    for l in s:
-        if l==l.upper():
-            swap = swap + l.lower()
-        else:
-            swap = swap + l.upper()
-    return swap
-
-#String Split and Join
-def split_and_join(line):
-    newline=line.split(" ") #slpit sullo spazio
-    joinline="-".join(newline)
-    return joinline
-
-
-#What's Your Name?
-def print_full_name(a, b):
-    fn=a
-    ln=b
-    print("Hello "+ fn + " " + ln + "! You just delved into python.")
-
-#Mutations
-def mutate_string(string, position, character):
-    newstring = list(string)
-    newstring[position]= character
-    newstring2= ''.join(newstring)
-    return newstring2
-
-#List
+#Lists
 if __name__ == '__main__':
     N = int(input())
     c = []
@@ -202,6 +165,49 @@ if __name__ == '__main__':
             c.reverse()
         elif righe[0] == 'print':
             print(c)
+
+
+#Tuples
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+    t = tuple(integer_list)
+    print(hash(t))
+
+
+
+#sWAP cASE
+def swap_case(s):
+    swap= ""
+
+    for l in s:
+        if l==l.upper():
+            swap = swap + l.lower()
+        else:
+            swap = swap + l.upper()
+    return swap
+
+#String Split and Join
+def split_and_join(line):
+    newline=line.split(" ") #slpit sullo spazio
+    joinline="-".join(newline)
+    return joinline
+
+
+
+#What's Your Name?
+def print_full_name(a, b):
+    fn=a
+    ln=b
+    print("Hello "+ fn + " " + ln + "! You just delved into python.")
+
+#Mutations
+def mutate_string(string, position, character):
+    newstring = list(string)
+    newstring[position]= character
+    newstring2= ''.join(newstring)
+    return newstring2
+
 
 #Find a string
 def count_substring(string, sub_string):
@@ -225,6 +231,22 @@ def count_substring(string, sub_string):
                     rimanente = rimanente[1:]
 
     return c1
+
+#String Validators
+if __name__ == '__main__':
+    s = input()
+    #metodo any() per vedere se uno dei valori corrisponde a quanto cerchiamo, altrimenti isXXX() mi dice se tutti lo sono. Restituisce true di default
+    num   = any(el.isalnum() for el in s)
+    alpha = any(el.isalpha() for el in s)
+    digit = any(el.isdigit() for el in s)
+    lower = any(el.islower() for el in s)
+    upper = any(el.isupper() for el in s)
+
+    print(num)
+    print(alpha)
+    print(digit)
+    print(lower)
+    print(upper)
 
 
 #Text Alignement
@@ -298,32 +320,7 @@ def print_formatted(number):
             print((dec.rjust(w4) + " " + octal.rjust(w4) + " " + hexa.rjust(w4) + " " + binary.rjust(w4)))
 
 
-#String Validators
-if __name__ == '__main__':
-    s = input()
-    #metodo any() per vedere se uno dei valori corrisponde a quanto cerchiamo, altrimenti isXXX() mi dice se tutti lo sono. Restituisce true di default
-    num   = any(el.isalnum() for el in s)
-    alpha = any(el.isalpha() for el in s)
-    digit = any(el.isdigit() for el in s)
-    lower = any(el.islower() for el in s)
-    upper = any(el.isupper() for el in s)
 
-    print(num)
-    print(alpha)
-    print(digit)
-    print(lower)
-    print(upper)
-
-#Capitalize!
-# Complete the solve function below.
-def solve(s):
-    lista1 = s.split(" ")
-    r = ""
-    for el in lista1:
-        p = el.capitalize()
-
-        r += p + " "
-    return r
 
 #Alphabet Rangoli
 def print_rangoli(size):
@@ -345,21 +342,17 @@ def print_rangoli(size):
         r = p1 + k1
         print((r).center(4 * size - 3, "-"))  # 3*size-3 è il pattern ricorrente
 
+#Capitalize!
+# Complete the solve function below.
+def solve(s):
+    lista1 = s.split(" ")
+    r = ""
+    for el in lista1:
+        p = el.capitalize()
 
+        r += p + " "
+    return r
 
-#Merge the Tools!
-def merge_the_tools(string, k):
-    n = len(string)
-    f = k / n
-
-    if 1 <= n <= 10 ** 4 and 1 <= k <= n:
-        for t in range(0, n, k):
-            new_s = string[t:t + k]  # stringa di k elementi
-            g = ""
-            for l in new_s:
-                if l not in g:
-                    g += l
-            print(g)
 
 #The Minion Game
 def minion_game(string):
@@ -381,6 +374,22 @@ def minion_game(string):
         else:
             print ("Draw")
 
+#Merge the Tools!
+def merge_the_tools(string, k):
+    n = len(string)
+    f = k / n
+
+    if 1 <= n <= 10 ** 4 and 1 <= k <= n:
+        for t in range(0, n, k):
+            new_s = string[t:t + k]  # stringa di k elementi
+            g = ""
+            for l in new_s:
+                if l not in g:
+                    g += l
+            print(g)
+
+
+
 
 #Introduction to Sets
 def average(array):
@@ -388,6 +397,13 @@ def average(array):
     b = sum(a)
     c = len(a)
     return (b / c)
+
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
 
 
 #Symmetric Difference
@@ -452,6 +468,26 @@ for i in s:
     c=c+i
 print(c)
 
+#Set .union() Operation
+n = int(input())
+s1= set(map(int,input().split()))
+M=int(input())
+s2= set(map(int,input().split()))
+inter=s1.union(s2)
+
+print(len(inter))
+
+
+#Set .intersection() Operation
+n = int(input())
+s1= set(map(int,input().split()))
+M=int(input())
+s2= set(map(int,input().split()))
+inter=s1.intersection(s2)
+
+print(len(inter))
+
+
 
 #Set .difference() Operation
 n = int(input())
@@ -472,14 +508,25 @@ inter=s1.symmetric_difference(s2)
 
 print(len(inter))
 
-#Set .union() Operation
+#Set Mutations
 n = int(input())
-s1= set(map(int,input().split()))
+s= set(map(int,input().split()))
 M=int(input())
-s2= set(map(int,input().split()))
-inter=s1.union(s2)
 
-print(len(inter))
+for el in range(M):
+    cmd = list(input().split())
+    s1= set(map(int,input().split()))
+
+    if cmd[0] == 'intersection_update':
+        s.intersection_update(s1)
+    elif cmd[0] == 'update':
+        s.update(s1)
+    elif cmd[0] == 'symmetric_difference_update':
+        s.symmetric_difference_update(s1)
+    elif cmd[0] == 'difference_update':
+        s.difference_update(s1)
+
+print(sum(s))
 
 #The Captain's Room
 n = int(input())
@@ -525,25 +572,8 @@ for el in range(n):
             a="True"
 print(a)
 
-#Set Mutations
-n = int(input())
-s= set(map(int,input().split()))
-M=int(input())
 
-for el in range(M):
-    cmd = list(input().split())
-    s1= set(map(int,input().split()))
 
-    if cmd[0] == 'intersection_update':
-        s.intersection_update(s1)
-    elif cmd[0] == 'update':
-        s.update(s1)
-    elif cmd[0] == 'symmetric_difference_update':
-        s.symmetric_difference_update(s1)
-    elif cmd[0] == 'difference_update':
-        s.difference_update(s1)
-
-print(sum(s))
 
 #collections.Counter()
 from collections import Counter
@@ -588,6 +618,24 @@ for word in words_m:
 
 for line in stdout_list:
     print(line)
+
+
+#Collections.namedtuple()
+from collections import namedtuple
+
+n_students = int(input())
+columns = input().split()
+student = namedtuple('Student', columns)
+sum = 0
+
+for i in range(n_students):
+    columns_i = input().split()
+    student_i = student(*columns_i)
+    sum += int(student_i.MARKS)
+
+print('{:.2f}'.format(sum/n_students))
+
+
 
 #Collections.OrderedDict()
 from collections import OrderedDict
@@ -703,22 +751,60 @@ for i in range(number):
                 print("No")
                 break
 
-#Collections.namedtuple()
-from collections import namedtuple
 
-n_students = int(input())
-columns = input().split()
-student = namedtuple('Student', columns)
-sum = 0
+#Calendar Module
+import calendar
+m,d,y = map(int,input().split())
+c=calendar.weekday(y, m, d) #documentation--> per avere giorno
+week_days={0: "MONDAY", 1: "TURSDAY", 2:"WEDNESDAY",3:"THURSDAY",4:"FRIDAY",5:"SATURDAY",6:"SUNDAY"}
+print(week_days[c])
 
-for i in range(n_students):
-    columns_i = input().split()
-    student_i = student(*columns_i)
-    sum += int(student_i.MARKS)
+#Time Delta
+#!/bin/python3
 
-print('{:.2f}'.format(sum/n_students))
+import math
+import os
+import random
+import re
+import sys
+
+from datetime import datetime
+# Complete the time_delta function below.
+
+def time_delta(t1, t2):
+    t3=datetime.strptime(t1, '%a %d %b %Y %H:%M:%S %z') #string to datetime object + formato
+    t4=datetime.strptime(t2, '%a %d %b %Y %H:%M:%S %z') #string to datetime object + formato
+    diff = (abs(t3-t4)).total_seconds() #to have secs
+    return str(int(diff)) #intero + stringa (unsupport altrimenti)
 
 
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        t1 = input()
+
+        t2 = input()
+
+        delta = time_delta(t1, t2)
+
+        fptr.write(delta + '\n')
+
+    fptr.close()
+
+#Exceptions
+n=int(input())
+
+for num in range(n):
+    try:
+        n,m = map(int,input().split())
+        print(n//m)
+    except ZeroDivisionError as e:
+        print ("Error Code:",e)
+    except ValueError as e2:
+        print ("Error Code:",e2)
 
 
 #Zipped!
@@ -791,25 +877,6 @@ stdout_list.append("".join(sorted(lower)+sorted(upper)+sorted(odd)+sorted(even))
 for l in stdout_list:
     print(l)
 
-#Exceptions
-n=int(input())
-
-for num in range(n):
-    try:
-        n,m = map(int,input().split())
-        print(n//m)
-    except ZeroDivisionError as e:
-        print ("Error Code:",e)
-    except ValueError as e2:
-        print ("Error Code:",e2)
-
-
-#Calendar Module
-import calendar
-m,d,y = map(int,input().split())
-c=calendar.weekday(y, m, d) #documentation--> per avere giorno
-week_days={0: "MONDAY", 1: "TURSDAY", 2:"WEDNESDAY",3:"THURSDAY",4:"FRIDAY",5:"SATURDAY",6:"SUNDAY"}
-print(week_days[c])
 
 
 #Map and Lambda Function
@@ -827,40 +894,6 @@ def fibonacci(n):
             fiblist.append(fiblist[i - 1] + fiblist[i - 2])
     return fiblist
 
-#Time Delta
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-from datetime import datetime
-# Complete the time_delta function below.
-
-def time_delta(t1, t2):
-    t3=datetime.strptime(t1, '%a %d %b %Y %H:%M:%S %z') #string to datetime object + formato
-    t4=datetime.strptime(t2, '%a %d %b %Y %H:%M:%S %z') #string to datetime object + formato
-    diff = (abs(t3-t4)).total_seconds() #to have secs
-    return str(int(diff)) #intero + stringa (unsupport altrimenti)
-
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    t = int(input())
-
-    for t_itr in range(t):
-        t1 = input()
-
-        t2 = input()
-
-        delta = time_delta(t1, t2)
-
-        fptr.write(delta + '\n')
-
-    fptr.close()
 
 
 #Detect Floating Point Number
@@ -870,7 +903,14 @@ t=int(input())
 
 for num in range(t):
     number=input()
-    print(bool(re.search(r"^[+-]?[0-9]*\.[0-9]+$", number)))  #^ inizio, []
+    print(bool(re.search(r"^[+-]?\d*\.\d+$", number)))  #^ inizio, []
+
+#Re.split()
+regex_pattern = r"[.,]"	# Do not delete 'r'.
+
+import re
+print("\n".join(re.split(regex_pattern, input())))
+
 
 
 #Group(), Groups() & Groupdict()
@@ -884,11 +924,6 @@ if n:
 else:
     print(-1)
 
-#Re.split()
-regex_pattern = r"[.,]"	# Do not delete 'r'.
-
-import re
-print("\n".join(re.split(regex_pattern, input())))
 
 
 #Re.findall() & Re.finditer()
@@ -906,6 +941,38 @@ if n:
     print(*n, sep='\n')  #star operator e stampa a capo
 else:
     print(-1)
+
+#Re.start() & Re.end()
+import re
+
+
+#Your task is to find the indices of the start and end of string k in s .
+s=input()
+k=input()
+regex_pattern = r'(?=('+k+'))'
+r1=re.finditer(regex_pattern,s)
+r2=re.search(regex_pattern,s)
+if r2:
+    for m in r1:
+        print((m.start(1), m.end(1)-1))
+else:
+    print((-1,-1))
+
+
+#Regex Substitution
+import re
+
+n=int(input())
+regex_pattern1=r"(?<= )(&&)(?= )"
+regex_pattern2=r"(?<= )(\|\|)(?= )"
+
+for i in range (n):
+    testo= str(input())
+    if testo in ' && ' or ' || ':
+         r1=(re.sub(regex_pattern1,'and',testo))
+         r2=(re.sub(regex_pattern2,'or',r1))
+         print(r2)
+
 
 #Validating Roman Numerals
 regex_pattern = r"^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$"    # Do not delete 'r'.
@@ -951,6 +1018,264 @@ for col in range(n):
     f=re.findall(regex_pattern,l)
     for i in f:
         print(i)
+
+
+#HTML Parser - Part 1
+from html.parser import HTMLParser
+
+n=int(input())
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print ("Start :", tag)
+        for a in attrs:
+            print("->", a[0], ">", a[1])
+    def handle_endtag(self, tag):
+        print ("End   :", tag)
+    def handle_startendtag(self, tag, attrs):
+        print ("Empty :", tag)
+        for a in attrs:
+            print("->", a[0], ">", a[1])
+
+
+parser = MyHTMLParser()
+for l in range(n):
+    tag = input().rstrip()
+    parser.feed(str(tag))
+
+#HTML Parser - Part 2
+from html.parser import HTMLParser
+
+n=int(input())
+
+class MyHTMLParser(HTMLParser):
+    def handle_comment(self, data):
+        if '\n' not in data: #ver a capo
+            print('>>> Single-line Comment')
+            print(data)
+        else:
+            print('>>> Multi-line Comment')
+            print(data)
+
+    def handle_data(self, data):
+        if '\n' not in data: # Do not print data if data == '\n'.
+            print(">>> Data")
+            print(data)
+
+parser = MyHTMLParser()
+cod = ''
+for i in range(n):
+    cod += input().rstrip() +'\n'
+parser.feed(cod)
+
+#Detect HTML Tags, Attributes and Attribute Values
+
+from html.parser import HTMLParser
+
+n=int(input())
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print(tag)
+        for a in attrs:
+            print("->", a[0], ">", a[1])
+
+
+parser = MyHTMLParser()
+for l in range(n):
+    tag = input().rstrip()
+    parser.feed(str(tag))
+
+
+#Validating UID
+import re
+
+n=input()
+
+for num in range(int(n)):
+    s=input().strip()
+    regex_pattern = r"^(?!.*(.).*\1)(?=(?:.*[A-Z]){2,})(?=(?:.*[0-9]){3,})[a-zA-Z0-9]{10}$"  #(?!.*(.).*\1) no rep.
+    b=re.match(regex_pattern, s)
+    if b:
+        print('Valid')
+    else:
+        print('Invalid')
+
+#Validating Credit Card Numbers
+import re
+
+n=input()
+regex_pattern1 = r"^[456][0-9]{15}$"
+regex_pattern2 = r"(^[456][0-9]{3}-)([0-9]{4}-){2}([0-9]{4})$"
+nofour=r"(?!.*([0-9])\1{3})"
+
+for num in range(int(n)):
+    s=input().strip()
+    b=re.match(regex_pattern1, s)
+    c=re.match(regex_pattern2, s)
+
+    if c:
+        s1 = s.replace("-", "")
+        d = re.match(nofour, s1)
+        if d:
+            print("Valid")
+        else:
+            print("Invalid")
+    else:
+        if b:
+            print('Valid')
+        else:
+            print("Invalid")
+
+
+
+
+#Validating Postal Codes
+regex_integer_in_range = r"^[1-9][0-9]{5}$"	# Do not delete 'r'.
+regex_alternating_repetitive_digit_pair = r"(?=([0-9])[0-9]\1)"	# Do not delete 'r'.
+
+import re
+P = input()
+
+print (bool(re.match(regex_integer_in_range, P))
+and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
+
+
+
+
+#Matrix Script
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+
+for i in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
+#print(matrix)
+###########################
+to_print = ''
+for i in range(m):
+    for j in range(n):
+        to_print = to_print + matrix[j][i]
+#print(to_print)
+
+regex_pattern=r"(?<=([a-zA-Z0-9]))[\s$#%&]+(?=[a-zA-Z0-9])"
+f=re.sub(regex_pattern," ",to_print)
+print(f)
+
+
+#XML 1 - Find the Score
+import sys
+import xml.etree.ElementTree as etree
+
+
+def get_attr_number(node):
+    # your code goes here
+    count = 0
+    for el in node.iter():  #iterator for the given object
+        count+=len(el.attrib)  #pydoc
+    return count
+
+
+if __name__ == '__main__':
+    sys.stdin.readline()
+    xml = sys.stdin.read()
+    tree = etree.ElementTree(etree.fromstring(xml))
+    root = tree.getroot()
+    print(get_attr_number(root))
+
+
+#XML2 - Find the Maximum Depth
+import xml.etree.ElementTree as etree
+
+maxdepth = 0
+def depth(elem, level):
+    global maxdepth
+    # your code goes here-->vedi dfs(?)
+    if maxdepth==level:
+        maxdepth+=1
+    elif level >= maxdepth:
+        maxdepth = level
+    for el in elem:
+        depth(el, level+1) #test ricorsione
+    return maxdepth
+
+
+if __name__ == '__main__':
+    n = int(input())
+    xml = ""
+    for i in range(n):
+        xml =  xml + input() + "\n"
+    tree = etree.ElementTree(etree.fromstring(xml))
+    depth(tree.getroot(), -1)
+    print(maxdepth)
+
+#Standardize Mobile Number Using Decorators
+def wrapper(f):
+    def fun(l):
+        # complete the function
+        p1 = "0"
+        p2 = "9"
+        p3 = "1"
+
+        to_print = []
+        for el in l:
+            el2 = list(el)
+            if len(el) == 11:
+                if el2[0] == p1:
+                    to_print.append("+91 " + el[1:6] + " " + el[6:11])
+            elif len(el) == 12:
+                if el2[0] == p2 and el2[1] == p3:
+                    to_print.append("+91 " + el[2:7] + " " + el[7:12])
+            elif len(el) == 10:
+                if el[0] == p2:
+                    to_print.append("+91 " + el[0:5] + " " + el[5:10])
+                else:
+                    to_print.append("+91 " + el[0:5] + " " + el[5:10])
+            elif len(el)==13:
+                to_print.append(el[0:3]+ " " +el[3:8] + " " + el[8:13])
+
+        d = sorted(to_print)
+        for n in d:
+            print(n)
+
+    @wrapper
+    def sort_phone(l):
+        print(*sorted(l), sep='\n')
+
+    if __name__ == '__main__':
+        l = [input() for _ in range(int(input()))]
+        sort_phone(l)
+
+
+#Decorators 2 - Name Directory
+def person_lister(f):
+    def inner(people):
+        # complete the function
+        #to_print=[]
+        sorted_by_third = sorted(people, key=lambda l: int(l[2]))
+        return (f(person) for person in sorted_by_third)
+
+    return inner
+@person_lister
+def name_format(person):
+    return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
+
+if __name__ == '__main__':
+    people = [input().split() for i in range(int(input()))]
+    print(*name_format(people), sep='\n')
+
 
 
 #Arrays
@@ -1106,13 +1431,10 @@ for el in range(int(n)):
 a = numpy.array((l))
 
 numpy.set_printoptions(sign=' ', legacy='1.13') #opz stampa
-#mean
-print( numpy.mean(a, axis = 1))
-#var
 
-print( (numpy.var(a, axis = 0).round(decimals=12)))
-#std
-print( numpy.std(a, axis = None))
+print( numpy.mean(a, axis = 1))#mean
+print( (numpy.var(a, axis = 0).round(decimals=12)))#var
+print( numpy.std(a, axis = None))#std
 
 #Dot and Cross
 import numpy
@@ -1132,8 +1454,8 @@ for el in range(int(n)):
 
 int_b = numpy.array((ll))
 
-#matrix prod
-print(numpy.dot(int_a,int_b))
+
+print(numpy.dot(int_a,int_b)) #matrix prod
 
 #Inner and Outer
 import numpy
@@ -1167,289 +1489,7 @@ arr_a = numpy.array((l))
 numpy.set_printoptions(legacy='1.13')
 print (numpy.linalg.det(arr_a))
 
-#Regex Substitution
-import re
 
-n=int(input())
-regex_pattern1=r"(?<= )(&&)(?= )"
-regex_pattern2=r"(?<= )(\|\|)(?= )"
-
-for i in range (n):
-    testo= str(input())
-    if testo in ' && ' or ' || ':
-         r1=(re.sub(regex_pattern1,'and',testo))
-         r2=(re.sub(regex_pattern2,'or',r1))
-         print(r2)
-
-
-#HTML Parser - Part 1
-from html.parser import HTMLParser
-
-n=int(input())
-
-class MyHTMLParser(HTMLParser):
-    def handle_starttag(self, tag, attrs):
-        print ("Start :", tag)
-        for a in attrs:
-            print("->", a[0], ">", a[1])
-    def handle_endtag(self, tag):
-        print ("End   :", tag)
-    def handle_startendtag(self, tag, attrs):
-        print ("Empty :", tag)
-        for a in attrs:
-            print("->", a[0], ">", a[1])
-
-
-parser = MyHTMLParser()
-for l in range(n):
-    tag = input().rstrip()
-    parser.feed(str(tag))
-
-#HTML Parser - Part 2
-from html.parser import HTMLParser
-
-n=int(input())
-
-class MyHTMLParser(HTMLParser):
-    def handle_comment(self, data):
-        if '\n' not in data: #ver a capo
-            print('>>> Single-line Comment')
-            print(data)
-        else:
-            print('>>> Multi-line Comment')
-            print(data)
-
-    def handle_data(self, data):
-        if '\n' not in data: # Do not print data if data == '\n'.
-            print(">>> Data")
-            print(data)
-
-parser = MyHTMLParser()
-cod = ''
-for i in range(n):
-    cod += input().rstrip() +'\n'
-parser.feed(cod)
-
-#Detect HTML Tags, Attributes and Attribute Values
-
-from html.parser import HTMLParser
-
-n=int(input())
-class MyHTMLParser(HTMLParser):
-    def handle_starttag(self, tag, attrs):
-        print(tag)
-        for a in attrs:
-            print("->", a[0], ">", a[1])
-
-
-parser = MyHTMLParser()
-for l in range(n):
-    tag = input().rstrip()
-    parser.feed(str(tag))
-
-
-#Validating UID
-import re
-
-n=input()
-
-for num in range(int(n)):
-    s=input().strip()
-    regex_pattern = r"^(?!.*(.).*\1)(?=(?:.*[A-Z]){2,})(?=(?:.*[0-9]){3,})[a-zA-Z0-9]{10}$"  #(?!.*(.).*\1) no rep.
-    b=re.match(regex_pattern, s)
-    if b:
-        print('Valid')
-    else:
-        print('Invalid')
-
-#Validating Credit Card Numbers
-import re
-
-n=input()
-regex_pattern1 = r"^[456][0-9]{15}$"
-regex_pattern2 = r"(^[456][0-9]{3}-)([0-9]{4}-){2}([0-9]{4})$"
-nofour=r"(?!.*([0-9])\1{3})"
-
-for num in range(int(n)):
-    s=input().strip()
-    b=re.match(regex_pattern1, s)
-    c=re.match(regex_pattern2, s)
-
-    if c:
-        s1 = s.replace("-", "")
-        d = re.match(nofour, s1)
-        if d:
-            print("Valid")
-        else:
-            print("Invalid")
-    else:
-        if b:
-            print('Valid')
-        else:
-            print("Invalid")
-
-
-
-
-#Validating Postal Codes
-regex_integer_in_range = r"^[1-9][0-9]{5}$"	# Do not delete 'r'.
-regex_alternating_repetitive_digit_pair = r"(?=([0-9])[0-9]\1)"	# Do not delete 'r'.
-
-import re
-P = input()
-
-print (bool(re.match(regex_integer_in_range, P))
-and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
-
-#Re.start() & Re.end()
-import re
-
-
-#Your task is to find the indices of the start and end of string k in s .
-s=input()
-k=input()
-regex_pattern = r'(?=('+k+'))'
-r1=re.finditer(regex_pattern,s)
-r2=re.search(regex_pattern,s)
-if r2:
-    for m in r1:
-        print((m.start(1), m.end(1)-1))
-else:
-    print((-1,-1))
-
-
-#Matrix Script
-#!/bin/python3
-
-import math
-import os
-import random
-import re
-import sys
-
-
-
-first_multiple_input = input().rstrip().split()
-n = int(first_multiple_input[0])
-m = int(first_multiple_input[1])
-matrix = []
-
-for i in range(n):
-    matrix_item = input()
-    matrix.append(matrix_item)
-#print(matrix)
-###########################
-to_print = ''
-for i in range(m):
-    for j in range(n):
-        to_print = to_print + matrix[j][i]
-#print(to_print)
-
-regex_pattern=r"(?<=([a-zA-Z0-9]))[\s$#%&]+(?=[a-zA-Z0-9])"
-f=re.sub(regex_pattern," ",to_print)
-print(f)
-
-
-#XML 1 - Find the Score
-import sys
-import xml.etree.ElementTree as etree
-
-
-def get_attr_number(node):
-    # your code goes here
-    count = 0
-    for el in node.iter():  #iterator for the given object
-        count+=len(el.attrib)  #pydoc
-    return count
-
-
-if __name__ == '__main__':
-    sys.stdin.readline()
-    xml = sys.stdin.read()
-    tree = etree.ElementTree(etree.fromstring(xml))
-    root = tree.getroot()
-    print(get_attr_number(root))
-
-
-#XML2 - Find the Maximum Depth
-import xml.etree.ElementTree as etree
-
-maxdepth = 0
-def depth(elem, level):
-    global maxdepth
-    # your code goes here-->vedi dfs(?)
-    if maxdepth==level:
-        maxdepth+=1
-    elif level >= maxdepth:
-        maxdepth = level
-    for el in elem:
-        depth(el, level+1) #test ricorsione
-    return maxdepth
-
-
-if __name__ == '__main__':
-    n = int(input())
-    xml = ""
-    for i in range(n):
-        xml =  xml + input() + "\n"
-    tree = etree.ElementTree(etree.fromstring(xml))
-    depth(tree.getroot(), -1)
-    print(maxdepth)
-
-#Standardize Mobile Number Using Decorators
-def wrapper(f):
-    def fun(l):
-        # complete the function
-        p1 = "0"
-        p2 = "9"
-        p3 = "1"
-
-        to_print = []
-        for el in l:
-            el2 = list(el)
-            if len(el) == 11:
-                if el2[0] == p1:
-                    to_print.append("+91 " + el[1:6] + " " + el[6:11])
-            elif len(el) == 12:
-                if el2[0] == p2 and el2[1] == p3:
-                    to_print.append("+91 " + el[2:7] + " " + el[7:12])
-            elif len(el) == 10:
-                if el[0] == p2:
-                    to_print.append("+91 " + el[0:5] + " " + el[5:10])
-                else:
-                    to_print.append("+91 " + el[0:5] + " " + el[5:10])
-            elif len(el)==13:
-                to_print.append(el[0:3]+ " " +el[3:8] + " " + el[8:13])
-
-        d = sorted(to_print)
-        for n in d:
-            print(n)
-
-    @wrapper
-    def sort_phone(l):
-        print(*sorted(l), sep='\n')
-
-    if __name__ == '__main__':
-        l = [input() for _ in range(int(input()))]
-        sort_phone(l)
-
-
-#Decorators 2 - Name Directory
-def person_lister(f):
-    def inner(people):
-        # complete the function
-        #to_print=[]
-        sorted_by_third = sorted(people, key=lambda l: int(l[2]))
-        return (f(person) for person in sorted_by_third)
-
-    return inner
-@person_lister
-def name_format(person):
-    return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
-
-if __name__ == '__main__':
-    people = [input().split() for i in range(int(input()))]
-    print(*name_format(people), sep='\n')
 
 
 #Birthday Cake Candles
